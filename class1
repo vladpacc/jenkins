@@ -1,0 +1,8 @@
+helm upgrade --install jenkins --namespace default ./ # install jenkins
+printf $(kubectl get secret --namespace default jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
+export SERVICE_IP=$(kubectl get svc --namespace default jenkins --template "{{ range (index .status.loadBalancer.ingress 0) }}{{ . }}{{ end }}")
+echo http://$SERVICE_IP:8080/login
+
+	Helm delete Jenkins # command to delete jenkins
+
+helm fetch --untar stable/jenkins # fetch
