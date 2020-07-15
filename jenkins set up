@@ -1,0 +1,16 @@
+helm install --name jenkins  --set master.serviceType=LoadBalancer stable/jenkins --version 2.1.0
+helm repo add stable  https://kubernetes-charts.storage.googleapis.com
+helm search repo jenkins
+helm install jenkins  --set master.serviceType=LoadBalancer stable/jenkins --version 2.1.0
+printf $(kubectl get secret --namespace default jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
+kubectl get svc --namespace default -w jenkins
+export SERVICE_IP=$(kubectl get svc --namespace default jenkins --template "{{ range (index .status.loadBalancer.ingress 0) }}{{ . }}{{ end }}")
+echo http://$SERVICE_IP:8080/login
+
+
+
+#helm fetch --untar stable/jenkins
+# List of plugins to be install during Jenkins master start
+  installPlugins:
+    - kubernetes:1.26.2
+#helm upgrade --install jenkins --namespace default ./ 
