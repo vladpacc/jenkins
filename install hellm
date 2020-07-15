@@ -1,0 +1,9 @@
+helm version
+sudo mv /usr/local/bin/helm /usr/local/bin/helm3
+wget https://get.helm.sh/helm-v2.14.3-linux-amd64.tar.gz
+tar -xf helm-v2.14.3-linux-amd64.tar.gz
+sudo mv linux-amd64/helm /usr/local/bin/helm
+helm version
+kubectl create sa -n kube-system tiller
+kubectl create clusterrolebinding tiller-cluster-admin --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
+helm init --service-account tiller --upgrade
