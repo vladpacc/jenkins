@@ -64,3 +64,5 @@ def slavePodTemplate = """
         }
       }
     }
+'''''''''''''''''''''''''''''''''''
+Home Works #devops/jenkins/classHomework 1 Please create Jenkins job which is following steps. Make sure Jenkins job is successfully passing all two stages.  1.Create a credential callgithub-token which is storing your GitHub Token.2.Jenkins job should have params which is listing Github Users 3.Schedule a job and make sure it's usingfuchicorp/buildtools container 4.Create a stageCheck Creds which will run script 1 with github token5.Create a stageGet User which is getting  specific user from the param and should run script 2 Script 1curl -H "Authorization: token $GIT_TOKEN" -X GET 'https://api.github.com/users' -I |grep 'HTTP/1.1 200 OK'Script 2curl -H "Authorization: token $GIT_TOKEN" -X GET 'https://api.github.com/users/${github_user}'Github Users1.fsadykov2.antonbabenko3.mojombo4.defunkt
