@@ -1,0 +1,10 @@
+installation Ubuntu  (shall.app) just in case if you have Windows OS,
+go to Win10 > cmd as Administrator and run command:
+"Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux"
+go to Winappstore - find "ubuntu 20.04", download it
+run apt-get update && apt-get upgrade -y
+install all nessecery packages like:
+git (apt-get install git -y, create public_key and connect to github with git clone command)
+groovy language (apt install groovy -y),
+Connect to VSCode, (install plugin Remote - WSL "for windows features of Linux")
+go down to left of Vscode press "icone with ><"
