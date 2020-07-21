@@ -1,0 +1,8 @@
+1.k8- kubeadm install
+2. for master and node same steps
+1. master ---  kubeadm init
+2. take output form init (mkdir) run on master
+3. take line kubeadm join (for worker and ssh)
+4.ssh node01 (run comm join from master init)
+5. kubectl get nodes (master)
+1.install plugin (k8 - weave), only on master
